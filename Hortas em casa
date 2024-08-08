@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Do Campo para a Cidade - Horta em Casa</title>
+</head>
+<body>
+    <header>
+        <h1>Do Campo para a Cidade</h1>
+        <nav>
+            <ul>
+                <li><a href="#home">Início</a></li>
+                <li><a href="#about">Sobre</a></li>
+                <li><a href="#tips">Dicas</a></li>
+                <li><a href="#contact">Contato</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section id="home">
+            <h2>Bem-vindo à Horta em Casa</h2>
+            <p>Aqui você encontra tudo o que precisa para começar sua horta urbana.</p>
+        </section>
+
+        <section id="about">
+            <h2>Sobre Nós</h2>
+            <p>Somos uma equipe dedicada a ajudar você a cultivar sua própria comida em espaços urbanos.</p>
+        </section>
+
+        <section id="tips">
+            <h2>Dicas de Cultivo</h2>
+            <article>
+                <h3>Escolha das Plantas</h3>
+                <p>Veja quais plantas são mais fáceis de cultivar em ambientes urbanos.</p>
+            </article>
+            <article>
+                <h3>Preparação do Solo</h3>
+                <p>Dicas para preparar o solo ideal para suas plantas.</p>
+            </article>
+            <article>
+                <h3>Manutenção da Horta</h3>
+                <p>Como cuidar das suas plantas e garantir uma boa colheita.</p>
+            </article>
+        </section>
+    </main>
+
+    <footer>
+        <section id="contact">
+            <h2>Contato</h2>
+            <p>Email: contato@hortaemcasa.com</p>
+        </section>
+    </footer>
+</body>
+</html>
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f9;
+}
+
+header {
+    background-color: #4CAF50;
+    color: white;
+    padding: 1rem;
+    text-align: center;
+}
+
+nav ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+nav ul li {
+    display: inline;
+    margin: 0 1rem;
+}
+
+nav ul li a {
+    color: white;
+    text-decoration: none;
+}
+
+main {
+    padding: 2rem;
+}
+
+h2 {
+    color: #4CAF50;
+}
+
+footer {
+    background-color: #333;
+    color: white;
+    text-align: center;
+    padding: 1rem;
+}
+
+article {
+    background-color: white;
+    padding: 1rem;
+    margin-bottom: 1rem;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+document.addEventListener('DOMContentLoaded', function() {
+    const links = document.querySelectorAll('nav ul li a');
+    links.forEach(link => {
+        link.addEventListener('click', function(e) {
+            e.preventDefault();
+            const targetId = link.getAttribute('href').substring(1);
+            const targetSection = document.getElementById(targetId);
+            window.scrollTo({
+                top: targetSection.offsetTop,
+                behavior: 'smooth'
+            });
+        });
+    });
+
+    // Exemplo de adicionar interatividade com dicas
+    const tips = [
+        "Regue suas plantas regularmente, mas evite encharcar o solo.",
+        "Escolha um local com boa iluminação para sua horta.",
+        "Utilize adubo orgânico para enriquecer o solo.",
+        "Faça a rotação de culturas para manter a saúde do solo."
+    ];
+
+    const tipsSection = document.getElementById('tips');
+    tips.forEach(tip => {
+        const tipElement = document.createElement('p');
+        tipElement.textContent = tip;
+        tipsSection.appendChild(tipElement);
+    });
+});
